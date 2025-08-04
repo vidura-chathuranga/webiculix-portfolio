@@ -9,7 +9,11 @@ const config: Config = {
     theme: {
         extend: {
             container: {
+                center:true,
                 padding: '1rem',
+            },
+            fontFamily: {
+                sans: ['var(--font-dm-sans)', 'sans-serif'],
             }
         }
     },

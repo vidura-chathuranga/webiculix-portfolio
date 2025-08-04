@@ -19,9 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={clsx(dm_sans.variable, "antialiased")}>
       <body
-        className={clsx(dm_sans.variable, "antialiased")}
+        
       >
         {children}
       </body>
