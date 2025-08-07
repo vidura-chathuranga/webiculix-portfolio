@@ -4,28 +4,7 @@ import PlusIcon from '../assets/icons/plus.svg';
 import MinusIcon from '../assets/icons/minus.svg';
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
-const items = [
-  {
-    question: 'What is Webiculix?',
-    answer:
-      'Webiculix is a powerful platform that provides everything you need to build and manage your online presence.',
-  },
-  {
-    question: 'How do I get started?',
-    answer:
-      'You can get started by signing up on our website and exploring the features we offer.',
-  },
-  {
-    question: 'Is my data secure?',
-    answer:
-      'Yes, we use end-to-end encryption to ensure that your data is securely stored and protected from unauthorized access.',
-  },
-  {
-    question: 'Is my data secure?',
-    answer:
-      'Yes, we use end-to-end encryption to ensure that your data is securely stored and protected from unauthorized access.',
-  },
-];
+import { faqs } from '../lib/data';
 
 type AccordionItemProps = {
   question: string;
@@ -39,12 +18,12 @@ const AccordionItem = ({ question, answer }: AccordionItemProps) => {
       className="py-7 border-b border-white/30"
       onClick={() => setIsOpened(!isOpened)}
     >
-      <div className="flex items-center">
-        <span className="flex-1 text-lg font-bold">{question}</span>
+      <div className="flex items-center gap-x-3">
+        <span className="flex-1 text-lg font-bold text-wrap">{question}</span>
         {!isOpened ? <PlusIcon /> : <MinusIcon />}
       </div>
       <AnimatePresence>
-        {isOpened && ( 
+        {isOpened && (
           <motion.div
             className={'text-white/70'}
             initial={{
@@ -70,7 +49,7 @@ const FAQs = () => {
           Frequently asked questions
         </h2>
         <div className="mt-12 max-w-[648px] mx-auto">
-          {items.map((item, index) => (
+          {faqs.map((item, index) => (
             <AccordionItem
               key={index}
               question={item.question}
